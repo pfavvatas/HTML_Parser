@@ -14,5 +14,8 @@ def main(argv):
     parser(argv)
 
 if __name__ == '__main__':
+  logger.info("****************************************************************")
   logger.info("Program has started")
   main(sys.argv[1:])
+  logger.info("Program has ended")
+  logger.info("****************************************************************")

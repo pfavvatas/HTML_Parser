@@ -2,7 +2,7 @@ import os, sys
 
 
 def get_list(filename=None):
-    print(filename)
+    #print(filename)
     return get_file_data(filename)
 
 def get_file_data(filename=None):
