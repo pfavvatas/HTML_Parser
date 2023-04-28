@@ -1,7 +1,15 @@
 import os, sys
 from urllib.parse import urlparse
+import logging
+from logs.log_setup import *
+
+# Set up the logging configuration
+setup_logging()
+# Create a logger for the module
+logger = logging.getLogger(__name__)
 
 def is_valid_url(url):
+    logger.debug(f"Function {is_valid_url.__name__} is running with arguments {url}")
     """
     Check if the given string is a valid URL.
 
@@ -18,6 +26,7 @@ def is_valid_url(url):
         return False
 
 def is_valid_file_path(path):
+    logger.debug(f"Function {is_valid_file_path.__name__} is running with arguments {path}")
     """
     Check if the given string is a valid file path.
 
@@ -34,6 +43,7 @@ def is_valid_file_path(path):
         return False
     
 def is_valid_url_v2(url):
+    logger.debug(f"Function {is_valid_url_v2.__name__} is running with arguments {url}")
     """
     Version: 2
     Check if the given string is a valid URL.

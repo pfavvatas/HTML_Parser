@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 List = []
 
 def html_init_parser(argv):
-    print('htmlParser')
-    # print(argv)
+    logger.debug(f"Function {html_init_parser.__name__} is running with arguments {argv}")
+
     # urlList = readList(argv[0])
     List = readList(argv[0])
 
@@ -31,11 +31,14 @@ def html_init_parser(argv):
         elif is_valid_file_path(item) :
             logger.debug(item + " is a valid file path")
             html_data = get_file_html_data(item)
+        else :
+            logger.warning("Invalid item: %s", item)
         #print(html_data)
         #HTMLParser
         # testParser = Parse()
         # testParser.feed(html_data)        
 
 def readList(filename=None, **kwargs):
+    logger.debug(f"Function {html_init_parser.__name__} is running with arguments {filename}")
     return get_list(filename)
     
