@@ -37,6 +37,5 @@ def html_init_parser(argv):
         # testParser.feed(html_data)        
 
 def readList(filename=None, **kwargs):
-    logger.debug("filename: " , filename)
     return get_list(filename)
     
