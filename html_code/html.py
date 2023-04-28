@@ -1,8 +1,9 @@
 import os, time
 import logging
 from logs.log_setup import *
-from url_code import *
-from url_code.utils import *
+# from url_code import *
+# from url_code.utils import *
+# from html_code.parser2 import *
 from html_code.parser import *
 from html_code.utils import *
 from common.utils import *
@@ -24,7 +25,6 @@ def html_init_parser(argv):
     # from parser import Parse
     for item in List:
         # Parse(url)
-        # html_data = get_file_html_data(item)
         if is_valid_url(item) :
             logger.debug(item + " is a valid url")
             html_data = get_url_html_data(item)
@@ -33,12 +33,24 @@ def html_init_parser(argv):
             html_data = get_file_html_data(item)
         else :
             logger.warning("Invalid item: %s", item)
+            continue
         #print(html_data)
+        
+        try:
+            test_data = parse_html(html_data)
+            logger.debug(test_data)
+        except Exception as e:
+        # By this way we can know about the type of error occurring
+            print("The error is: ",e)
+        
+        
+        # Parse(html_data)
         #HTMLParser
         # testParser = Parse()
-        # testParser.feed(html_data)        
+        # testParser.feed(html_data)  
+        # print(testParser)      
 
 def readList(filename=None, **kwargs):
-    logger.debug(f"Function {html_init_parser.__name__} is running with arguments {filename}")
+    logger.debug(f"Function {readList.__name__} is running with arguments {filename}")
     return get_list(filename)
     
