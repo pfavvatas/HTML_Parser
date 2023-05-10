@@ -37,8 +37,15 @@ def html_init_parser(argv):
         #print(html_data)
         
         try:
-            test_data = parse_html(html_data)
-            logger.debug(test_data)
+            stage1 = parse_html(html_data)
+            logger.debug("stage1 " , stage1)
+        except Exception as e:
+        # By this way we can know about the type of error occurring
+            print("The error is: ",e)
+
+        try:
+            stage2 = parse_html_2(stage1)
+            logger.debug("stage2 " , stage2)
         except Exception as e:
         # By this way we can know about the type of error occurring
             print("The error is: ",e)
